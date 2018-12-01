@@ -20,6 +20,8 @@ import java.awt.Color;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.DropMode;
+import javax.swing.ImageIcon;
+
 import java.awt.Font;
 
 public class Pirex {
@@ -60,6 +62,7 @@ public class Pirex {
 		frmPirex = new JFrame();
 		frmPirex.setResizable(false);
 		frmPirex.setTitle("Pirex");
+		frmPirex.setIconImage(new ImageIcon(getClass().getResource("16x16.png")).getImage());
 		frmPirex.setBounds(100, 100, 801, 544);
 		frmPirex.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmPirex.getContentPane().setLayout(null);
