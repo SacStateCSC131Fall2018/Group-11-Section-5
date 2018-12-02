@@ -62,7 +62,7 @@ public class Pirex {
 		frmPirex = new JFrame();
 		frmPirex.setResizable(false);
 		frmPirex.setTitle("Pirex");
-		frmPirex.setIconImage(new ImageIcon(getClass().getResource("16x16.png")).getImage());
+		frmPirex.setIconImage(new ImageIcon(getClass().getResource("32x32.png")).getImage());
 		frmPirex.setBounds(100, 100, 801, 544);
 		frmPirex.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmPirex.getContentPane().setLayout(null);
