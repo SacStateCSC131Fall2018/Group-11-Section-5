@@ -2,19 +2,17 @@ package pirexProgram;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import javax.swing.JTextField;
+import javax.swing.JLabel;
 import javax.swing.JButton;
+import javax.swing.JTextArea;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.ScrollPaneConstants;
 
 public class LD extends JComponent 
 {
+	private static final long serialVersionUID = 1L;
 	private JTextField TextField1;
 	private JTextField TextField2;
 	private JTextField TextField3;

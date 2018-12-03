@@ -1,19 +1,10 @@
 package pirexProgram;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.Container;
-import java.awt.*;
-import javax.swing.JTabbedPane;
-import pirexProgram.*;
 
-
-
-import javax.swing.JPanel;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JMenuBar;
-
-
 
 
 public class pirexWindow extends JFrame
@@ -24,8 +15,7 @@ public class pirexWindow extends JFrame
 	{
 		super();
 		setupLayout();
-//		pack();
-		setResizable(true);
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
@@ -34,9 +24,12 @@ public class pirexWindow extends JFrame
 		Container		contentPane;
 		PanelCreation 	allTheTabs; 
 		MenuItems		menus;
-				
+		ImageIcon		icon;
+		
 		allTheTabs = new PanelCreation();
 		menus = new MenuItems();
+		icon = new ImageIcon("image/32x32.png");
+		setIconImage(icon.getImage());
 				
 		setSize(800, 542);
 		

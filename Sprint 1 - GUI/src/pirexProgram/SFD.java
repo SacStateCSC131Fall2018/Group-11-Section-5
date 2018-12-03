@@ -1,11 +1,16 @@
 package pirexProgram;
 
-import java.awt.*;
-import javax.swing.*;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 public class SFD extends JPanel 
 {
-
+	private static final long serialVersionUID = 1L;
 	private JTextField TextField;
 
 	public SFD() 

@@ -1,21 +1,14 @@
 package pirexProgram;
 
 import java.awt.Font;
-
-import javax.swing.JButton;
 import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 
 public class SD extends JComponent 
 {
-	private JTextField TextField;
-
+	private static final long serialVersionUID = 1L;
 	public SD() 
 	{
 		setLayout(null);

@@ -1,11 +1,11 @@
 package pirexProgram;
 
-import javax.swing.*;
 import pirexProgram.LD;
 import pirexProgram.SD;
 import pirexProgram.SFD;
-//import java.awt.*;
 import java.awt.event.KeyEvent;
+import javax.swing.JComponent;
+import javax.swing.JTabbedPane;
 
 public class PanelCreation extends JTabbedPane 
 {
