@@ -4,11 +4,12 @@ import javax.swing.*;
 import pirexProgram.LD;
 import pirexProgram.SD;
 import pirexProgram.SFD;
-import java.awt.*;
+//import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class PanelCreation extends JTabbedPane 
 {
+	private static final long serialVersionUID = 1L;
 	public PanelCreation()
 	{
 		super();

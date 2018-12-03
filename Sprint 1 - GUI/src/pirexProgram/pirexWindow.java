@@ -11,6 +11,7 @@ import pirexProgram.*;
 
 import javax.swing.JPanel;
 import javax.swing.JFrame;
+import javax.swing.JMenuBar;
 
 
 
@@ -24,7 +25,7 @@ public class pirexWindow extends JFrame
 		super();
 		setupLayout();
 //		pack();
-		setResizable(false);
+		setResizable(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
@@ -32,13 +33,16 @@ public class pirexWindow extends JFrame
 	{
 		Container		contentPane;
 		PanelCreation 	allTheTabs; 
+		MenuItems		menus;
 				
 		allTheTabs = new PanelCreation();
+		menus = new MenuItems();
 				
 		setSize(800, 542);
 		
 		contentPane = getContentPane();
 		contentPane.add(allTheTabs, BorderLayout.CENTER);
+		setJMenuBar(menus);
 	}
 
 }
