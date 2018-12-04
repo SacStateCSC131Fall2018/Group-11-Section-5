@@ -43,7 +43,8 @@ public class sourcesWindow extends JFrame implements ActionListener {
 		editPathName = new JLabel("Path Name:");
 		txtPanel.add(editPathName);
 		
-		pathNameTxt = new JTextField();
+		pathNameTxt = new JTextField("/users/someone/taleOfTwoCities.txt");
+		pathNameTxt.selectAll();
 		pathNameTxt.setColumns(30);
 		pathNameTxt.setSize(20, 60);
 		txtPanel.add(pathNameTxt);
