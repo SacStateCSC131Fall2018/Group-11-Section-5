@@ -29,10 +29,36 @@ public class MenuItems extends JMenuBar implements ActionListener
 		JMenuItem newMenuItem = new JMenuItem("New...", KeyEvent.VK_N);
 		fileMenu.add(newMenuItem);
 		
-		//Export menu item... should launch a new window on click
 		JMenuItem exportMenuItem = new JMenuItem("Export...", KeyEvent.VK_Z);
-		exportMenuItem.addActionListener(this);
+		exportMenuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				exportWindow	window2;
+				
+		        window2 = new exportWindow();
+		        window2.setTitle("Export Results");        
+		        window2.setVisible(true);
+				
+			}
+		}
+		);
 		fileMenu.add(exportMenuItem);
+		
+		//Load query menu item...should launch a new window on click to load query
+		JMenuItem loadQueryMenuItem = new JMenuItem("Load Query...", KeyEvent.VK_L);
+		loadQueryMenuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				loadQueryWindow	window3 = new loadQueryWindow();
+				window3.setTitle("Load Query");
+				window3.setVisible(true);
+				
+			}
+		}
+		);
+		fileMenu.add(loadQueryMenuItem);
 		
 		//Exit in File menu, closes the program
 		JMenuItem exitFileItem = new JMenuItem("Exit", KeyEvent.VK_X);
@@ -99,15 +125,5 @@ public class MenuItems extends JMenuBar implements ActionListener
 		
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) 
-	{
-		exportWindow	window2;
-		
-        window2 = new exportWindow();
-        window2.setTitle("Export Results");        
-        window2.setVisible(true);
-		
-	}
 	
 }
