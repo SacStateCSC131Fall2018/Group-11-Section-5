@@ -79,6 +79,24 @@ public class MenuItems extends JMenuBar implements ActionListener
 		};
 		indexHelpItem.addActionListener(al1);
 		helpMenu.add(indexHelpItem);
+		
+		//Options Menu Bar item
+		JMenu optionsMenu = new JMenu("Options");
+		add(optionsMenu);
+		
+		//Sources in Options Menu Bar 
+		JMenuItem sourcesItem = new JMenuItem("Sources", KeyEvent.VK_S);
+		ActionListener al2 = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				sourcesWindow sources = new sourcesWindow();
+				sources.setTitle("Set Source Path");
+				sources.setVisible(true);
+			}
+		};
+		sourcesItem.addActionListener(al2);
+		optionsMenu.add(sourcesItem);
+		
 	}
 
 	@Override
