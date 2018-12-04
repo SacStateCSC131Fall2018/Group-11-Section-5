@@ -10,7 +10,7 @@ import pirexProgram.exportWindow;
 
 
 
-public class MenuItems extends JMenuBar implements ActionListener
+public class MenuItems extends JMenuBar
 {
 	private static final long serialVersionUID = 1L;
 	
