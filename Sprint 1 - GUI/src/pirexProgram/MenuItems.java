@@ -62,13 +62,12 @@ public class MenuItems extends JMenuBar implements ActionListener
 		
 		//Exit in File menu, closes the program
 		JMenuItem exitFileItem = new JMenuItem("Exit", KeyEvent.VK_X);
-		ActionListener al0 = new ActionListener() {
+		exitFileItem.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        System.exit(0);
 		    }
-		};
-		exitFileItem.addActionListener(al0);
+		});
 		fileMenu.add(exitFileItem);
 
 		//Edit Menu Bar item
@@ -93,17 +92,14 @@ public class MenuItems extends JMenuBar implements ActionListener
 		
 		//Index in Help menu, displays info on various aspects of Pirex
 		JMenuItem indexHelpItem = new JMenuItem("Index");
-		ActionListener al1 = new ActionListener() {
+		indexHelpItem.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
-		        indexWindow	window3;
-		        
-		        window3 = new indexWindow();
-		        window3.setTitle("Index Help");
-		        window3.setVisible(true);
+		        indexWindow	window4 = new indexWindow();;
+		        window4.setTitle("Index Help");
+		        window4.setVisible(true);
 		    }
-		};
-		indexHelpItem.addActionListener(al1);
+		});
 		helpMenu.add(indexHelpItem);
 		
 		//Options Menu Bar item
@@ -112,15 +108,14 @@ public class MenuItems extends JMenuBar implements ActionListener
 		
 		//Sources in Options Menu Bar 
 		JMenuItem sourcesItem = new JMenuItem("Sources", KeyEvent.VK_S);
-		ActionListener al2 = new ActionListener() {
+		sourcesItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				sourcesWindow sources = new sourcesWindow();
-				sources.setTitle("Set Source Path");
-				sources.setVisible(true);
+				sourcesWindow window5 = new sourcesWindow();
+				window5.setTitle("Set Source Path");
+				window5.setVisible(true);
 			}
-		};
-		sourcesItem.addActionListener(al2);
+		});
 		optionsMenu.add(sourcesItem);
 		
 	}
