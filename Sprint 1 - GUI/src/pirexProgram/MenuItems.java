@@ -33,6 +33,17 @@ public class MenuItems extends JMenuBar implements ActionListener
 		JMenuItem exportMenuItem = new JMenuItem("Export...", KeyEvent.VK_Z);
 		exportMenuItem.addActionListener(this);
 		fileMenu.add(exportMenuItem);
+		
+		//Exit in File menu, closes the program
+		JMenuItem exitMenuItem = new JMenuItem("Exit");
+		ActionListener al = new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        System.exit(0);
+		    }
+		};
+		exitMenuItem.addActionListener(al);
+		fileMenu.add(exitMenuItem);
 
 		//Edit Menu Bar item
 		
