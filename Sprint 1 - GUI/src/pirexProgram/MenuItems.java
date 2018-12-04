@@ -35,15 +35,15 @@ public class MenuItems extends JMenuBar implements ActionListener
 		fileMenu.add(exportMenuItem);
 		
 		//Exit in File menu, closes the program
-		JMenuItem exitMenuItem = new JMenuItem("Exit");
-		ActionListener al = new ActionListener() {
+		JMenuItem exitFileItem = new JMenuItem("Exit", KeyEvent.VK_X);
+		ActionListener al0 = new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        System.exit(0);
 		    }
 		};
-		exitMenuItem.addActionListener(al);
-		fileMenu.add(exitMenuItem);
+		exitFileItem.addActionListener(al0);
+		fileMenu.add(exitFileItem);
 
 		//Edit Menu Bar item
 		
@@ -64,6 +64,21 @@ public class MenuItems extends JMenuBar implements ActionListener
 		
 		JMenu helpMenu = new JMenu("Help");
 		add(helpMenu);
+		
+		//Index in Help menu, displays info on various aspects of Pirex
+		JMenuItem indexHelpItem = new JMenuItem("Index");
+		ActionListener al1 = new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        indexWindow	window3;
+		        
+		        window3 = new indexWindow();
+		        window3.setTitle("Index Help");
+		        window3.setVisible(true);
+		    }
+		};
+		indexHelpItem.addActionListener(al1);
+		helpMenu.add(indexHelpItem);
 	}
 
 	@Override
