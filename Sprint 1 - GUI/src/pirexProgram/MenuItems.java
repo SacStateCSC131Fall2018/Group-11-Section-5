@@ -29,6 +29,10 @@ public class MenuItems extends JMenuBar
 		JMenuItem newMenuItem = new JMenuItem("New...", KeyEvent.VK_N);
 		fileMenu.add(newMenuItem);
 		
+		//The save querry (AK)
+		JMenuItem saveQuerry = new JMenuItem("Save Querry...", KeyEvent.VK_S);
+		fileMenu.add(saveQuerry);
+		
 		JMenuItem exportMenuItem = new JMenuItem("Export...", KeyEvent.VK_Z);
 		exportMenuItem.addActionListener(new ActionListener() {
 			@Override
@@ -90,12 +94,23 @@ public class MenuItems extends JMenuBar
 		JMenu helpMenu = new JMenu("Help");
 		add(helpMenu);
 		
+		//About item for giving uusers basic information about the product
+		JMenuItem aboutItem = new JMenuItem("About");
+		helpMenu.add(aboutItem);
+		aboutItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				AboutDialog ad = new AboutDialog();
+				ad.setVisible(true);
+			}
+		});
+		
+		
 		//Index in Help menu, displays info on various aspects of Pirex
 		JMenuItem indexHelpItem = new JMenuItem("Index");
 		indexHelpItem.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
-		        indexWindow	window4 = new indexWindow();;
+		        indexWindow	window4 = new indexWindow();
 		        window4.setTitle("Index Help");
 		        window4.setVisible(true);
 		    }
@@ -122,3 +137,4 @@ public class MenuItems extends JMenuBar
 
 	
 }
+
