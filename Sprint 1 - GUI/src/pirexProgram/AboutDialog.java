@@ -30,7 +30,7 @@ import javax.swing.JMenuItem;
 		    name.setAlignmentX(0.5f);
 		    add(name);
 		    
-		    JLabel name0 = new JLabel("Section 11, Team 5");
+		    JLabel name0 = new JLabel("Section 5, Group 11");
 		    name.setAlignmentX(0.5f);
 		    add(name0);
 
