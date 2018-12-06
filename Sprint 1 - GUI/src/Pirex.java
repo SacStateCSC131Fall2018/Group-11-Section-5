@@ -12,25 +12,32 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JScrollBar;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
-import java.awt.Choice;
-import java.awt.Component;
-import javax.swing.Box;
-import java.awt.Color;
+//import java.awt.Choice;
+//import java.awt.Component;
+//import javax.swing.Box;
+//import java.awt.Color;
 import javax.swing.JSeparator;
-import javax.swing.SwingConstants;
-import javax.swing.DropMode;
+//import javax.swing.SwingConstants;
+//import javax.swing.DropMode;
 import javax.swing.ImageIcon;
 
 import java.awt.Font;
+//import java.awt.Toolkit;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 public class Pirex {
 
 	private JFrame frmPirex;
-	private JTextField textField;
+	private JTextField queryTextField;
 	private JTextField txtuserssomeonetaleoftwocities;
-	private JTextField txtATaleOf;
-	private JTextField txtCharlesDickens;
+	private JTextField titleTextBox;
+	private JTextField authorTextBox;
 
 	/**
 	 * Launch the application.
@@ -60,7 +67,6 @@ public class Pirex {
 	 */
 	private void initialize() {
 		frmPirex = new JFrame();
-		frmPirex.setResizable(false);
 		frmPirex.setTitle("Pirex");
 		frmPirex.setIconImage(new ImageIcon(getClass().getResource("32x32.png")).getImage());
 		frmPirex.setBounds(100, 100, 801, 544);
@@ -70,23 +76,18 @@ public class Pirex {
 		JTabbedPane Tabs = new JTabbedPane(JTabbedPane.TOP);
 		Tabs.setBounds(10, 11, 775, 494);
 		frmPirex.getContentPane().add(Tabs);
+		frmPirex.getContentPane().setLayout(new BorderLayout());
+		frmPirex.getContentPane().add(Tabs, BorderLayout.CENTER);
 		
 		JPanel SearchDocuments = new JPanel();
 		Tabs.addTab("Search for Documents", null, SearchDocuments, null);
-		SearchDocuments.setLayout(null);
 		
-		JLabel lblQuery = new JLabel("Query:");
-		lblQuery.setBounds(10, 11, 42, 14);
-		SearchDocuments.add(lblQuery);
+		JLabel labelQuery = new JLabel("Query:");
 		
-		textField = new JTextField();
-		textField.setBounds(51, 8, 628, 20);
-		SearchDocuments.add(textField);
-		textField.setColumns(10);
+		queryTextField = new JTextField();
+		queryTextField.setColumns(10);
 		
-		JButton btnClear = new JButton("Clear");
-		btnClear.setBounds(689, 7, 68, 23);
-		SearchDocuments.add(btnClear);
+		JButton clearButton = new JButton("Clear");
 		
 		JTextArea textAreaSFD1 = new JTextArea();
 		textAreaSFD1.setText("Charles Dickens Bleak House  276 I knew he meant well in paying me this compliment, so I laughed at" +
@@ -95,8 +96,6 @@ public class Pirex {
 							 "\nCharles Dickens Bleak House  769  \"They attend matins with me (very prettily done) at half-pax six" +
 							 "\nCharles Dickens Bleak House  947  This proper name, so used by Mr. Snagsby, has before six" +
 							 "\nCharles Dickens Bleak House  954  The red bit, the black bit, the inkstand top, the other inkstand top");
-		textAreaSFD1.setBounds(10, 46, 750, 205);
-		SearchDocuments.add(textAreaSFD1);
 		
 		JTextArea textAreaSFD2 = new JTextArea();
 		textAreaSFD2.setText("There may be some motions of fancy among the lower animals at Chesney" +
@@ -109,76 +108,91 @@ public class Pirex {
 							 "\nfamous for cross-country work, turning his large eyeball to the" +
 							 "\ngrated window near his rack, may remember the fresh leaves that" +
 							 "\nglitsen there at other times and the scents that stream in, and may");
-		textAreaSFD2.setBounds(10, 291, 728, 164);
-		SearchDocuments.add(textAreaSFD2);
 		
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setBounds(740, 291, 17, 164);
-		SearchDocuments.add(scrollBar);
+		JScrollBar scrollBarSearchDocuments = new JScrollBar();
+		GroupLayout gl_SearchDocuments = new GroupLayout(SearchDocuments);
+		gl_SearchDocuments.setHorizontalGroup(
+			gl_SearchDocuments.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_SearchDocuments.createSequentialGroup()
+					.addGap(10)
+					.addGroup(gl_SearchDocuments.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_SearchDocuments.createSequentialGroup()
+							.addGroup(gl_SearchDocuments.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_SearchDocuments.createSequentialGroup()
+									.addGap(41)
+									.addComponent(queryTextField, GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE))
+								.addComponent(labelQuery, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(clearButton, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED))
+						.addComponent(textAreaSFD1, GroupLayout.PREFERRED_SIZE, 760, Short.MAX_VALUE)
+						.addGroup(gl_SearchDocuments.createSequentialGroup()
+							.addComponent(textAreaSFD2, GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
+							.addGap(2)
+							.addComponent(scrollBarSearchDocuments, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addGap(3)))
+					.addGap(10))
+		);
+		gl_SearchDocuments.setVerticalGroup(
+			gl_SearchDocuments.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_SearchDocuments.createSequentialGroup()
+					.addGap(8)
+					.addGroup(gl_SearchDocuments.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_SearchDocuments.createParallelGroup(Alignment.BASELINE)
+							.addComponent(queryTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(clearButton))
+						.addGroup(gl_SearchDocuments.createSequentialGroup()
+							.addGap(3)
+							.addComponent(labelQuery)))
+					.addGap(18)
+					.addComponent(textAreaSFD1, GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+					.addGap(40)
+					.addGroup(gl_SearchDocuments.createParallelGroup(Alignment.LEADING)
+						.addComponent(scrollBarSearchDocuments, GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+						.addComponent(textAreaSFD2, GroupLayout.PREFERRED_SIZE, 170, Short.MAX_VALUE))
+					.addGap(11))
+		);
+		SearchDocuments.setLayout(gl_SearchDocuments);
 		
 		JPanel LoadDocuments = new JPanel();
 		Tabs.addTab("Load Documents", null, LoadDocuments, null);
-		LoadDocuments.setLayout(null);
 		
-		JLabel lblTextFile = new JLabel("Text File:");
-		lblTextFile.setBounds(10, 15, 58, 14);
-		LoadDocuments.add(lblTextFile);
+		JLabel labelTextFile = new JLabel("Text File:");
 		
 		txtuserssomeonetaleoftwocities = new JTextField();
 		txtuserssomeonetaleoftwocities.setText("/users/someone/taleOfTwoCities");
 		txtuserssomeonetaleoftwocities.setColumns(10);
-		txtuserssomeonetaleoftwocities.setBounds(65, 12, 603, 20);
-		LoadDocuments.add(txtuserssomeonetaleoftwocities);
 		
-		JButton btnBrowse = new JButton("Browse");
-		btnBrowse.addActionListener(new ActionListener() {
+		JButton browseButton = new JButton("Browse");
+		browseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnBrowse.setBounds(678, 11, 79, 23);
-		LoadDocuments.add(btnBrowse);
 		
-		JLabel lblTextFilteType = new JLabel("Text Filter Type:");
-		lblTextFilteType.setBounds(10, 46, 97, 14);
-		LoadDocuments.add(lblTextFilteType);
+		JLabel labelTextFilteType = new JLabel("Text Filter Type:");
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setEditable(true);
 		comboBox.setToolTipText("");
-
-		comboBox.setBounds(106, 43, 651, 20);
-		LoadDocuments.add(comboBox);
 		
-		JLabel lblTitle = new JLabel("Title:");
-		lblTitle.setBounds(10, 77, 46, 14);
-		LoadDocuments.add(lblTitle);
+		JLabel labelTitle = new JLabel("Title:");
 		
-		JLabel lblAuthor = new JLabel("Author:");
-		lblAuthor.setBounds(401, 79, 46, 11);
-		LoadDocuments.add(lblAuthor);
+		JLabel labelAuthor = new JLabel("Author:");
 		
-		txtATaleOf = new JTextField();
-		txtATaleOf.setText("A Tale of Two Cities");
-		txtATaleOf.setBounds(44, 74, 347, 20);
-		LoadDocuments.add(txtATaleOf);
-		txtATaleOf.setColumns(10);
+		titleTextBox = new JTextField();
+		titleTextBox.setText("A Tale of Two Cities");
+		titleTextBox.setColumns(10);
 		
-		txtCharlesDickens = new JTextField();
-		txtCharlesDickens.setText("Charles Dickens");
-		txtCharlesDickens.setColumns(10);
-		txtCharlesDickens.setBounds(454, 74, 303, 20);
-		LoadDocuments.add(txtCharlesDickens);
+		authorTextBox = new JTextField();
+		authorTextBox.setText("Charles Dickens");
+		authorTextBox.setColumns(10);
 		
 		JSeparator separator = new JSeparator();
-		separator.setBounds(10, 116, 750, 2);
-		LoadDocuments.add(separator);
 		
-		JButton btnProcess = new JButton("Process");
-		btnProcess.setBounds(10, 129, 91, 23);
-		LoadDocuments.add(btnProcess);
+		JButton processButton = new JButton("Process");
 		
-		JTextArea txtrOpususerssomenetaleoftwocitiestxt = new JTextArea();
-		txtrOpususerssomenetaleoftwocitiestxt.setText("Opus: /users/somene/taleOfTwoCities.txt" +
+		JTextArea textAreaLoadDocuments = new JTextArea();
+		textAreaLoadDocuments.setText("Opus: /users/somene/taleOfTwoCities.txt" +
 				 									  "\nAuthor: Charles Dickens" +
 				 									  "\nOpus size: 3329 documents" +
 				 									  "\nOpus number: 5" +
@@ -186,16 +200,83 @@ public class Pirex {
 				 									  "\nNew postings: 55039" +
 				 									  "\nTotal index terms: 26447" +
 				 									  "\nTotal postings: 226412");
-		txtrOpususerssomenetaleoftwocitiestxt.setBounds(10, 163, 747, 292);
-		LoadDocuments.add(txtrOpususerssomenetaleoftwocitiestxt);
+		GroupLayout gl_LoadDocuments = new GroupLayout(LoadDocuments);
+		gl_LoadDocuments.setHorizontalGroup(
+			gl_LoadDocuments.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_LoadDocuments.createSequentialGroup()
+					.addGap(10)
+					.addGroup(gl_LoadDocuments.createParallelGroup(Alignment.LEADING)
+						.addComponent(textAreaLoadDocuments, GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
+						.addGroup(gl_LoadDocuments.createSequentialGroup()
+							.addGroup(gl_LoadDocuments.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_LoadDocuments.createSequentialGroup()
+									.addGap(55)
+									.addComponent(txtuserssomeonetaleoftwocities, GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE))
+								.addComponent(labelTextFile, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE))
+							.addGap(13)
+							.addComponent(browseButton, GroupLayout.PREFERRED_SIZE, 79, GroupLayout.PREFERRED_SIZE))
+						.addComponent(labelTextFilteType, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_LoadDocuments.createSequentialGroup()
+							.addGroup(gl_LoadDocuments.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_LoadDocuments.createSequentialGroup()
+									.addGap(34)
+									.addComponent(titleTextBox, GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE))
+								.addComponent(labelTitle, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
+							.addGap(10)
+							.addComponent(labelAuthor, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+							.addGap(7)
+							.addComponent(authorTextBox, GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE))
+						.addComponent(separator, GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
+						.addComponent(processButton, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_LoadDocuments.createSequentialGroup()
+							.addGap(96)
+							.addComponent(comboBox, 0, 664, Short.MAX_VALUE)))
+					.addContainerGap())
+		);
+		gl_LoadDocuments.setVerticalGroup(
+			gl_LoadDocuments.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_LoadDocuments.createSequentialGroup()
+					.addGroup(gl_LoadDocuments.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_LoadDocuments.createSequentialGroup()
+							.addGap(12)
+							.addGroup(gl_LoadDocuments.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_LoadDocuments.createParallelGroup(Alignment.BASELINE)
+									.addComponent(txtuserssomeonetaleoftwocities, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addComponent(browseButton))
+								.addGroup(gl_LoadDocuments.createSequentialGroup()
+									.addGap(3)
+									.addComponent(labelTextFile)))
+							.addGap(14)
+							.addComponent(labelTextFilteType)
+							.addGap(14)
+							.addGroup(gl_LoadDocuments.createParallelGroup(Alignment.LEADING)
+								.addComponent(titleTextBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_LoadDocuments.createSequentialGroup()
+									.addGap(3)
+									.addComponent(labelTitle))
+								.addGroup(gl_LoadDocuments.createSequentialGroup()
+									.addGap(5)
+									.addComponent(labelAuthor, GroupLayout.PREFERRED_SIZE, 11, GroupLayout.PREFERRED_SIZE))
+								.addComponent(authorTextBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addGap(22)
+							.addComponent(separator, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addGap(11)
+							.addComponent(processButton)
+							.addGap(11)
+							.addComponent(textAreaLoadDocuments, GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE))
+						.addGroup(gl_LoadDocuments.createSequentialGroup()
+							.addGap(43)
+							.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap())
+		);
+		LoadDocuments.setLayout(gl_LoadDocuments);
 		
 		JPanel SummarizeDocuments = new JPanel();
 		Tabs.addTab("Summarize Documents", null, SummarizeDocuments, null);
-		SummarizeDocuments.setLayout(null);
 		
-		JTextArea txtrOpusCharles = new JTextArea();
-		txtrOpusCharles.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		txtrOpusCharles.setText("Opus  0: Charles Dickens   Bleak House     7312 documents" +
+		JTextArea textAreaSummarizeDocuments = new JTextArea();
+		textAreaSummarizeDocuments.setFont(new Font("Monospaced", Font.PLAIN, 11));
+		textAreaSummarizeDocuments.setText("Opus  0: Charles Dickens   Bleak House     7312 documents" +
 				  				"\n		/Users/christopherfox/Programs/java/ir/data/bleakHouse.txt" +
 				  				"\nOpus  1: Thomas Hardy   Far from the Madding Crowd     3538 Documents" +
 				  				"\n		/Users/christopherfox/Programs/java/ir/data/farFromTheMaddingCrowd.txt" +
@@ -209,11 +290,73 @@ public class Pirex {
 				  				"\n		/Users/christopherfox/Programs/java/ir/data/taleOfTwoCities.txt" +
 				  				"\n\nIndex terms: 26447" +
 				  				"\nPostings:    226412");
-		txtrOpusCharles.setBounds(10, 11, 728, 444);
-		SummarizeDocuments.add(txtrOpusCharles);
 		
-		JScrollBar scrollBar_1 = new JScrollBar();
-		scrollBar_1.setBounds(740, 11, 17, 444);
-		SummarizeDocuments.add(scrollBar_1);
+		JScrollBar scrollBarSummarizeDocuments = new JScrollBar();
+		GroupLayout gl_SummarizeDocuments = new GroupLayout(SummarizeDocuments);
+		gl_SummarizeDocuments.setHorizontalGroup(
+			gl_SummarizeDocuments.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_SummarizeDocuments.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(textAreaSummarizeDocuments, GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(scrollBarSummarizeDocuments, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(11))
+		);
+		gl_SummarizeDocuments.setVerticalGroup(
+			gl_SummarizeDocuments.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_SummarizeDocuments.createSequentialGroup()
+					.addGap(11)
+					.addGroup(gl_SummarizeDocuments.createParallelGroup(Alignment.TRAILING)
+						.addComponent(textAreaSummarizeDocuments, Alignment.LEADING)
+						.addComponent(scrollBarSummarizeDocuments, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE))
+					.addContainerGap())
+		);
+		SummarizeDocuments.setLayout(gl_SummarizeDocuments);
+		
+		JMenuBar menuBar = new JMenuBar();
+		frmPirex.setJMenuBar(menuBar);
+		
+		JMenu fileMenu = new JMenu("File");
+		fileMenu.setMnemonic(KeyEvent.VK_F);
+		menuBar.add(fileMenu);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("New...");
+		fileMenu.add(mntmNewMenuItem);
+		
+		JMenuItem mntmSaveQuerry = new JMenuItem("Save Querry...");
+		fileMenu.add(mntmSaveQuerry);
+		
+		JMenuItem mntmExport = new JMenuItem("Export...");
+		fileMenu.add(mntmExport);
+		
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Load Querry...");
+		fileMenu.add(mntmNewMenuItem_1);
+		
+		JMenuItem mntmExit = new JMenuItem("Exit");
+		fileMenu.add(mntmExit);
+		
+		JMenu mnEdit = new JMenu(" Edit");
+		menuBar.add(mnEdit);
+		
+		JMenu mnView = new JMenu("View");
+		menuBar.add(mnView);
+		
+		JMenu mnWindow = new JMenu("Window");
+		menuBar.add(mnWindow);
+		
+		JMenu mnHelp = new JMenu("Help");
+		menuBar.add(mnHelp);
+		
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Help");
+		mnHelp.add(mntmNewMenuItem_2);
+		
+		JMenuItem mntmAbout = new JMenuItem("About");
+		mnHelp.add(mntmAbout);
+		
+		JMenu mnOptions = new JMenu("Options");
+		menuBar.add(mnOptions);
+		
+		JMenuItem mntmSources = new JMenuItem("Sources");
+		mnOptions.add(mntmSources);
 	}
 }
