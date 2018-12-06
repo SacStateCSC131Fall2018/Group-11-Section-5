@@ -29,23 +29,19 @@ public class indexWindow extends JFrame implements ActionListener
 	{
 		Container	contentPane;
 		setLayout(null);
-		setSize(700, 100);
+		setSize(650, 100);
 		contentPane = getContentPane();
 		contentPane.setLayout(new BorderLayout());
 		
-		JTextArea indexHelpTitle = new JTextArea();
-		indexHelpTitle.setFont(new Font("Garamond", Font.BOLD, 24));
-		indexHelpTitle.setText("PIREX");
 		JTextArea indexHelpInfo = new JTextArea();
 		indexHelpInfo.setFont(new Font("Garamond", Font.PLAIN, 16));
-		indexHelpInfo.setText("Or personal information retrieval experimental system,  is an information retrieval system that\r\n" + 
+		indexHelpInfo.setText("Pirex, or personal information retrieval experimental system,  is an information retrieval system that\r\n" + 
 				"individuals can use to investigate their own texts. ");
 
 
 		
 		JScrollPane scroll3 = new JScrollPane(indexHelpInfo);
 		scroll3.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-		add(indexHelpTitle);
 		add(indexHelpInfo);
 
 	}
